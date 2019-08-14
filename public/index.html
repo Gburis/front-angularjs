@@ -1,8 +1,27 @@
-<html>
-    <header>
+<html lang="pt-br" ng-app="myproject">
+    <head>
+        <base href="/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8">
         <title></title>
-    </header>
+        <!-- material -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet">
+        <!-- angular -->
+        <script src="./bower_components/angular/angular.min.js"></script>
+        <script src="./bower_components/angular-route/angular-route.min.js"></script>
+        <script src="./js/directives/my-directives.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/controllers/feed.js"></script>
+    </head>
     <body>
-        <h1>Home</h1>
+        <div class="container-fluid">
+            <ng-view>
+                 
+            </ng-view>
+        </div>
     </body>
 </html>

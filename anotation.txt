@@ -1,0 +1,18 @@
+instalando angular pelo bower
+
+bower install angular#X.Y.Z
+bower install angular-route#X.Y.Z
+
+===============================================
+preparando servidor para alterar url
+
+back
+
+var path = require('path');
+app.all('/*', function(req, res) {
+    res.sendFile(path.resolve('public/index.html'));
+});
+
+front
+
+$lacationProvider.html5Mode(true);
