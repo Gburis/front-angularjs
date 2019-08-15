@@ -3,12 +3,13 @@ angular.module('myproject', ['myDirectives', 'ngRoute' ])
         $locationProvider.html5Mode(true);
         
         $routeProvider.when('/feed', {
-            templateUrl: 'views/feed.html'
+            templateUrl: 'views/feed.html',
+            controller: 'Feed'
         });
 
         $routeProvider.when('/register', {
             templateUrl: 'views/register.html',
-            controller: 'Feed'
+            controller: 'Register'
         });
         
         $routeProvider.otherwise({redirectTo: '/feed'});

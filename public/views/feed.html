@@ -1,2 +1,6 @@
 <feed-header></feed-header>
-<feed-content></feed-content>
+<div class="row">
+    <div class="col-12 col-md-10 offset-md-1 feed" ng-repeat="publication in publications" >
+        <feed-content titulo="{{publication.name}}" ></feed-content>
+    </div>
+</div>
