@@ -1,6 +1,8 @@
 <feed-header></feed-header>
 <div class="row">
-    <div class="col-12 col-md-10 offset-md-1 feed" ng-repeat="publication in publications" >
-        <feed-content titulo="{{publication.name}}" ></feed-content>
+    <div class="col-12 col-md-10 offset-md-1 feed">
+        <feed-content ng-repeat="publication in publications" titulo="{{publication.name}}" image="{{publication.image}}" action="bigImage(publication)"></feed-content>
     </div>
 </div>
+<modal img="{{imgModal}}" action="remove(id)"></modal>
+<alert msg="{{msg}}" color="{{msg_color}}"> </alert>

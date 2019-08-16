@@ -11,7 +11,34 @@ angular.module('myDirectives',[])
         }
     }).directive('feedContent', function(){
         return{
-            restrict: 'E',
+            restrict: 'AE',
+            scope:{
+                titulo: '@',
+                image: '@',
+                action: '&'
+            },
             templateUrl: 'js/directives/partials/feed-content.html'
+        }
+    }).directive('alert', function(){
+        return{
+            restrict: 'AE',
+            scope:{
+                titulo: '@',
+                msg: '@',
+                color: '@'  
+            },
+            template: '<div class="row">'
+                        +'<div class="my-alert {{color}}" id="my-alert">{{msg}}</div>'
+                    +'</div>'
+        }
+    }).directive('modal', function(){
+        return{
+            restrict: 'AE',
+            scope:{
+                img:'@',
+                target: '@',
+                action: '&'
+            },
+            templateUrl: 'js/directives/partials/modal.html'
         }
     });

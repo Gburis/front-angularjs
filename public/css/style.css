@@ -1,16 +1,28 @@
-
+::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+    background: #A9E2F3;
+}
+::-webkit-scrollbar-thumb {
+    background: #A9E2F3;
+    border-radius: 3px;
+}
 .feed{
+    border-radius: 3px;
     top: 5px;
     border: 1px solid skyblue!important;
     height:90vh!important;
     overflow: auto;
     display: -webkit-flex;
     display: flex;
-    -webkit-align-items: center;
-    align-items: center;
+    -webkit-align-items: left;
+    align-items: left;
     flex-wrap: wrap;
-    -webkit-justify-content: center;
-    justify-content: center;
+    -webkit-justify-content: left;
+    justify-content: left;
 }
 
 .feed > div{
@@ -34,4 +46,45 @@
     padding: 5px;
     border: 1px solid lightgrey;
     border-radius: 3px;
+}
+.card{
+    cursor: pointer;
+    margin: 5px;
+}
+
+.my-alert{
+    padding: 10px;
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    float: right;
+    top: 45%;
+    left: 15px;
+    color: white;
+    font-weight: bold;
+    animation: alert 0.3s;
+    border-radius: 5px;
+    display: none;
+    text-align: center;
+}
+.grey{
+    background-color: black;
+    opacity: 0.3;
+}
+
+.red{
+    background-color: red;
+    opacity: 0.6;
+}
+
+@keyframes alert {
+    0%{
+        top: 100%;
+    }
+    100%{
+        top: 45%;
+    }
+}
+.modal-img{
+    width: 100%;
 }

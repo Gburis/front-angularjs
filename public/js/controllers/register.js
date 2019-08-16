@@ -1,16 +1,15 @@
 angular.module('myproject').controller('Register', function($scope, $http){
     $scope.publication = {};
     $scope.fileName = 'Choose file';
+    $scope.msg = '';
+    $scope.msg_color = '';
 
     $scope.changeName = function(file){
-       console.log(file[0].name);
        let label = document.getElementById('label');
        label.innerHTML = file[0].name;
     }
 
     $scope.register = function(){
-
-        console.log($scope.publication.name);
         
         if($scope.publication.name == undefined){
             console.log('Todos os campos são obrigatorios');
@@ -25,20 +24,36 @@ angular.module('myproject').controller('Register', function($scope, $http){
        fd.append('name', $scope.publication.name);
        $scope.publication.image = fd;
 
-       console.log(fd);
-
        if(file.type == 'image/jpeg' || file.type == 'image/png' || file.type == 'image/gif' ){
             $http.post('http://localhost:8080/api', fd , {
                 transformRequest: angular.identity,
                 headers: {'Content-Type': undefined}
             }).then(function(resp){
-                console.log(resp);
+                $scope.publication = {};
+                $scope.fileName = 'Choose file';
+                $scope.msg = 'Imagem cadastrada com sucesso';
+                $scope.msg_color = 'grey';
+                document.getElementById('my-alert').style.display = 'block';
+                
             }).catch(function(erro){
-                console.log(erro);
+                $scope.msg = 'Erro desconhecido';
+                $scope.msg_color = 'red';
+                document.getElementById('my-alert').style.display = 'block';
             });
+
+            setTimeout(function(){
+                document.getElementById('my-alert').style.display = 'none';
+            },4000);
+
        }else{
-           console.log('apenas imagens são permitidas')
+        $scope.msg = 'Apenas imagens são permitidas (PNG|JPG|GIF)';
+        $scope.msg_color = 'red';
+        document.getElementById('my-alert').style.display = 'block';
        }
+
+       setTimeout(function(){
+            document.getElementById('my-alert').style.display = 'none';
+        },5000);
        
     }
 })
