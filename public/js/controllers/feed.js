@@ -38,6 +38,10 @@ angular.module('myproject').controller('Feed', function($scope, $http){
                 console.log(err);
                 popUp('Erro ao alterar titulo', 'red');
             });
+
+        setTimeout(function(){
+            document.getElementById('my-alert').style.display = 'none';
+        },4000);
     }
 
     // deletar postagens
