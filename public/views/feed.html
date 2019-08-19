@@ -1,8 +1,8 @@
 <feed-header></feed-header>
 <div class="row">
     <div class="col-12 col-md-10 offset-md-1 feed">
-        <feed-content ng-repeat="publication in publications" titulo="{{publication.name}}" image="{{publication.image}}" action="bigImage(publication)"></feed-content>
+        <feed-content ng-repeat="publication in publications | filter: filter" titulo="{{publication.name}}" image="{{publication.image}}" action="bigImage(publication)"></feed-content>
     </div>
 </div>
-<modal img="{{imgModal}}" action="remove(id)"></modal>
+<modal img="{{imgModal}}" action="remove(publication)" rename="update(publication)" title="{{publication.name}}"></modal>
 <alert msg="{{msg}}" color="{{msg_color}}"> </alert>

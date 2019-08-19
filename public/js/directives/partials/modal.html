@@ -2,7 +2,8 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+            <input type="email" class="form-control" value="{{title}}" id="title">
+
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -11,9 +12,12 @@
             <img src="http://localhost:8080/uploads/{{img}}" class="modal-img"/>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary delete">
                 <i class="material-icons" ng-click="action()">delete</i>        
+            </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success">
+                <i class="material-icons" ng-click="rename()">save</i>        
             </button>
         </div>
         </div>

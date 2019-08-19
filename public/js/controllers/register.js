@@ -4,15 +4,33 @@ angular.module('myproject').controller('Register', function($scope, $http){
     $scope.msg = '';
     $scope.msg_color = '';
 
+    popUp = function(msg, color){
+        $scope.msg = msg;
+        $scope.msg_color = color;
+        document.getElementById('my-alert').style.display = 'block';
+    }
+
+
     $scope.changeName = function(file){
        let label = document.getElementById('label');
        label.innerHTML = file[0].name;
+
+       //realizar preview da imagem a ser carregada
+       var reader = new FileReader();
+       reader.onload = function(e) {
+        $('#preview').attr('src', e.target.result);
+       }
+      
+       reader.readAsDataURL(file[0]);
+       
+
     }
 
     $scope.register = function(){
         
         if($scope.publication.name == undefined){
-            console.log('Todos os campos são obrigatorios');
+
+            popUp('todos os campos são obtigatorios','red');
             return false;
         }
 
@@ -31,24 +49,18 @@ angular.module('myproject').controller('Register', function($scope, $http){
             }).then(function(resp){
                 $scope.publication = {};
                 $scope.fileName = 'Choose file';
-                $scope.msg = 'Imagem cadastrada com sucesso';
-                $scope.msg_color = 'grey';
-                document.getElementById('my-alert').style.display = 'block';
+                popUp('Imagem cadastrada com sucesso','grey');
+
+                // remover imagem
+                $('#preview').attr('src', 'http://localhost:8080/uploads/photo.png');
                 
             }).catch(function(erro){
-                $scope.msg = 'Erro desconhecido';
-                $scope.msg_color = 'red';
-                document.getElementById('my-alert').style.display = 'block';
+                popUp('Erro desconhecido','red');
             });
 
-            setTimeout(function(){
-                document.getElementById('my-alert').style.display = 'none';
-            },4000);
-
        }else{
-        $scope.msg = 'Apenas imagens são permitidas (PNG|JPG|GIF)';
-        $scope.msg_color = 'red';
-        document.getElementById('my-alert').style.display = 'block';
+        popUp('Apenas imagens são permitidas (PNG|JPG|GIF)','red');
+
        }
 
        setTimeout(function(){
@@ -56,4 +68,6 @@ angular.module('myproject').controller('Register', function($scope, $http){
         },5000);
        
     }
-})
+
+});
+

@@ -18,11 +18,11 @@
     overflow: auto;
     display: -webkit-flex;
     display: flex;
-    -webkit-align-items: left;
-    align-items: left;
+    -webkit-align-items: center;
+    align-items: center;
     flex-wrap: wrap;
-    -webkit-justify-content: left;
-    justify-content: left;
+    -webkit-justify-content: center;
+    justify-content: center;
 }
 
 .feed > div{
@@ -52,6 +52,39 @@
     margin: 5px;
 }
 
+.preview{
+    height: 210px;
+    position: relative;
+    margin-top: 5%;
+    transition: 0.5;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+.preview > div {
+    overflow: hidden;
+    height: 200px;
+    width: 200px;
+    border: 4px solid lightgrey;
+    border-radius: 200px;
+}
+
+.preview > div > img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.delete{
+    margin-right: 63%!important;
+}
+.card > img{
+    height: 200px;
+    width: auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .my-alert{
     padding: 10px;
     width: 200px;
@@ -66,6 +99,7 @@
     border-radius: 5px;
     display: none;
     text-align: center;
+    z-index: 999;
 }
 .grey{
     background-color: black;

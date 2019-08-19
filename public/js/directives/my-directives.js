@@ -37,8 +37,18 @@ angular.module('myDirectives',[])
             scope:{
                 img:'@',
                 target: '@',
-                action: '&'
+                action: '&',
+                title: '@',
+                rename: '&'
             },
             templateUrl: 'js/directives/partials/modal.html'
+        }
+    }).directive('preview', function(){
+        return{
+            restrict: 'AE',
+            scope:{
+
+            },
+            templateUrl: 'js/directives/partials/preview.html'
         }
     });
